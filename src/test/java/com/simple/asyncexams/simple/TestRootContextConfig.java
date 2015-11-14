@@ -19,8 +19,8 @@ import org.springframework.util.ErrorHandler;
 @EnableAsync(proxyTargetClass = true)
 @EnableScheduling
 @ComponentScan(basePackages = "com.simple.asyncexams.simple")
-public class RootContextConfig implements AsyncConfigurer, SchedulingConfigurer{
-	private static final Logger logger = Logger.getLogger(TestRootContextConfig.class.getName());
+public class TestRootContextConfig implements AsyncConfigurer, SchedulingConfigurer{
+	private static final Logger logger = Logger.getLogger(RootContextConfig.class.getName());
 	
 	// @Async와 @Scheduled메서드는 이제 동일 쓰레드 풀 사용
 	@Bean
