@@ -25,7 +25,7 @@ public class TestRootContextConfig implements AsyncConfigurer, SchedulingConfigu
 	// @Async와 @Scheduled메서드는 이제 동일 쓰레드 풀 사용
 	@Bean
 	public ThreadPoolTaskScheduler taskScheduler(){
-		logger.info("Setting task scheduler");
+		logger.info("Setting task scheduler in Test Config");
 		ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();
 		scheduler.setPoolSize(20);
 		scheduler.setThreadNamePrefix("Task -- ");
@@ -33,7 +33,7 @@ public class TestRootContextConfig implements AsyncConfigurer, SchedulingConfigu
 		scheduler.setErrorHandler(new ErrorHandler(){
 			@Override
 			public void handleError(Throwable t) {
-				logger.info("Execution of task {} was rejected for some reason.");
+				logger.info("Execution of task {} was rejected for some reason in Test Config.");
 			}});
 		return scheduler;
 	}
@@ -48,7 +48,7 @@ public class TestRootContextConfig implements AsyncConfigurer, SchedulingConfigu
 	@Override
 	public Executor getAsyncExecutor() {
 		Executor executor = this.taskScheduler();
-		logger.info("Configuring async method executor.");
+		logger.info("Configuring async method executor in Test Config.");
 		return executor;
 	}
 }

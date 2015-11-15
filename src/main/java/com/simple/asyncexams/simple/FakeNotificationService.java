@@ -20,7 +20,8 @@ public class FakeNotificationService implements NotificationService {
 			}catch(InterruptedException ignore){
 				logger.info("Finished by some reason.");
 			}
-			logger.info(i+ "th message send.");
+			logger.info("\n\n"+i+ "th message send.\n\n");
 		}
+		logger.info("\n\nreleaded thread.\n\n");
 	}
 }
