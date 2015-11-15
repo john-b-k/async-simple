@@ -17,16 +17,19 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@WebAppConfiguration
-@ContextConfiguration(classes = {TestRootContextConfig.class,TestServletContextConfig.class,RootContextConfig.class,ServletContextConfig.class})
+@ContextConfiguration(classes = {TestRootContextConfig.class,
+										TestServletContextConfig.class,
+										RootContextConfig.class,
+										ServletContextConfig.class}	)
 public class TestFakeNotification {
 	@Inject
 	private EntryPointController entryPoint;
 	@Inject
 	private NotificationService notiService;
 	@Inject
-	private WebApplicationContext applicationContext;
+	private WebApplicationContext context;
 	@Inject
 	private MockMvc mockMvc;
 	
@@ -34,17 +37,18 @@ public class TestFakeNotification {
 	public void setUp() throws Exception{
 		System.out.println(1);
 		MockitoAnnotations.initMocks(this);
-		mockMvc = MockMvcBuilders.webAppContextSetup(this.applicationContext).build();//.standaloneSetup(entryPoint).build();
+		mockMvc = MockMvcBuilders.webAppContextSetup(context).build();//standaloneSetup(new EntryPointController()).build();
 		System.out.println(2);
+//		webAppContextSetup(this.applicationContext).build();
+	}
+	@Test
+	public void test2() throws Exception {
+		mockMvc.perform(get("/fakeNoti")).andExpect(status().isOk());
 	}
 //	@Test
-//	public void test2() throws Exception {
-//		mockMvc.perform(get("/fakeNoti")).andExpect(status().isOk());
-//	}
-	@Test
-	public void test(){
-		System.out.println("dd");
+//	public void test(){
+//		System.out.println("dd");
 //		assertThat(notiService, is(notNullValue()));
-		notiService.sendNotification("subject", "message", null);
-	}
+//		notiService.sendNotification("subject", "message", null);
+//	}
 }
