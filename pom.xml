@@ -195,19 +195,19 @@
 	</dependencies>
 
 	<build>
-		<sourceDirectory>source/production/java</sourceDirectory>
-		<resources>
-			<resource>
-				<directory>source/production/resources</directory>
-			</resource>
-		</resources>
+<!-- 		<sourceDirectory>source/production/java</sourceDirectory> -->
+<!-- 		<resources> -->
+<!-- 			<resource> -->
+<!-- 				<directory>source/production/resources</directory> -->
+<!-- 			</resource> -->
+<!-- 		</resources> -->
 
-		<testSourceDirectory>source/test/java</testSourceDirectory>
-		<testResources>
-			<testResource>
-				<directory>source/test/resources</directory>
-			</testResource>
-		</testResources>
+<!-- 		<testSourceDirectory>source/test/java</testSourceDirectory> -->
+<!-- 		<testResources> -->
+<!-- 			<testResource> -->
+<!-- 				<directory>source/test/resources</directory> -->
+<!-- 			</testResource> -->
+<!-- 		</testResources> -->
 
 		<plugins>
 			<plugin>

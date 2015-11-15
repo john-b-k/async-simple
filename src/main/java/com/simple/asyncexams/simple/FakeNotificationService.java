@@ -1,10 +1,12 @@
 package com.simple.asyncexams.simple;
 
 import java.util.Collection;
-
 import java.util.logging.Logger;
-import org.springframework.scheduling.annotation.Async;
 
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
+
+@Service
 public class FakeNotificationService implements NotificationService {
 	private static final Logger logger = Logger.getLogger(FakeNotificationService.class.getName());
 	
